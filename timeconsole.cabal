@@ -58,7 +58,7 @@ executable timeconsole
   
   build-depends:       base >=4.7 && <4.8
                       ,process
-                      ,benchmark-function
+                      ,time
   
   -- Directories containing source files.
   -- hs-source-dirs:      

@@ -7,19 +7,19 @@
   (major1) == 4 && (major2) <  7 || \
   (major1) == 4 && (major2) == 7 && (minor) <= 0)
 
-/* package benchmark-function-0.1.0.0 */
-#define VERSION_benchmark_function "0.1.0.0"
-#define MIN_VERSION_benchmark_function(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  1 || \
-  (major1) == 0 && (major2) == 1 && (minor) <= 0)
-
 /* package process-1.2.0.0 */
 #define VERSION_process "1.2.0.0"
 #define MIN_VERSION_process(major1,major2,minor) (\
   (major1) <  1 || \
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 0)
+
+/* package time-1.4.2 */
+#define VERSION_time "1.4.2"
+#define MIN_VERSION_time(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  4 || \
+  (major1) == 1 && (major2) == 4 && (minor) <= 2)
 
 /* tool alex-3.1.3 */
 #define TOOL_VERSION_alex "3.1.3"

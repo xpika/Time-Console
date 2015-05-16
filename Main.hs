@@ -3,26 +3,34 @@ import System.Environment
 import System.IO
 import Control.Monad
 import System.Process
-import Test.Benchmark.Function
 import Control.Applicative
 import Text.Printf
+import Data.Time
 
-
-sequenceWhile pm [] = return ()
-sequenceWhile pm (m:ms) = do 
-                p <- pm 
-                if p then m >> sequenceWhile pm ms
+sequenceWhileTrue [] = return ()
+sequenceWhileTrue (m:ms) = do 
+                r <- m 
+                if r then m >> sequenceWhileTrue ms
                      else return ()
 
 main = do
        (x:xs) <- getArgs
        (_, Just hout, _, _) <-
           createProcess (proc x xs) {std_out = CreatePipe}
-       sequenceWhile ( {- not <$> hIsEOF hout -} return True) $
+       sequenceWhileTrue $
          ((flip map) [1..] (\x -> do
-          (line0,time0) <- timeAction $ hGetLine hout
-          -- (line1,time1) <- timeAction $ hGetLine herror
-          putStrLn $ show x ++ ":" ++  printf "%f" (time0) ++ ":" ++ line0))
+          ((more,line0),time0) <- timeAction $ do 
+                                              more <-  not <$> hIsEOF hout  
+                                              if more then do 
+                                                           hout' <- hGetLine hout
+                                                           return (more,hout')
+                                                      else return (more,"")
+          when more (putStrLn $ show x ++ ":" ++  printf "%f" (time0) ++ ":" ++ line0)
+          return more))
 
-
-
+timeAction action = do
+    t1 <- getCurrentTime
+    g <- action
+    t2 <- getCurrentTime
+    let timeInUnits = (realToFrac $ diffUTCTime t2 t1 :: Float)
+    return (g,timeInUnits)
