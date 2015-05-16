@@ -1,5 +1,7 @@
 ==Time Console==
 
+Line Based time command
+
 usage:
 ```
 $ timeconsole ls -l
