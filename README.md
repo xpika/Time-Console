@@ -1,4 +1,4 @@
-==Time Console==
+# Time Console
 
 Line Based time command
 
