@@ -10,7 +10,7 @@ name:                timeconsole
 -- PVP summary:      +-+------- breaking API changes
 --                   | | +----- non-breaking API additions
 --                   | | | +--- code changes with no API change
-version:             0.1.0.1
+version:             0.1.0.2
 synopsis: time each line of terminal output
 
 homepage: https://github.com/xpika/Time-Console
@@ -59,9 +59,9 @@ executable timeconsole
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:    
   
-  build-depends:       base >=4.7 && <4.8
-                      ,process
-                      ,time
+  build-depends:       base <10000
+                      ,process <10000
+                      ,time <10000
   
   -- Directories containing source files.
   -- hs-source-dirs:      
