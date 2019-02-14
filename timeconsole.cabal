@@ -21,6 +21,6 @@ executable timeconsole
         process <10000,
         time <10000
     default-language: Haskell2010
-    extensions: Safe
+    default-extensions: Safe
 
 
