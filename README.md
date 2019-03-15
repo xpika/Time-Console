@@ -13,3 +13,9 @@ $ timeconsole ls -l
 3:0.000006:drwxr-xr-x  5 alanhawkins  staff    170 16 May 17:36 dist
 4:0.000002:-rw-r--r--  1 alanhawkins  staff   1955 16 May 17:14 timeconsole.cabal
 ```
+
+sometimes you need to force the output of the other command to be buffered to fix this use:
+
+```
+$timeconsole script -qc <COMMAND>
+```
