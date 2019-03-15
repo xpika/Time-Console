@@ -1,5 +1,5 @@
 name: timeconsole
-version: 0.1.0.4
+version: 0.1.0.5
 cabal-version: >=1.10
 build-type: Simple
 license: GPL-2

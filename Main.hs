@@ -15,8 +15,10 @@ sequenceWhileTrue (m:ms) = do
 
 main = do
        (x:xs) <- getArgs
+       hSetBuffering stdout NoBuffering
        (_, Just hout, _, _) <-
           createProcess (proc x xs) {std_out = CreatePipe}
+       hSetBuffering hout NoBuffering
        sequenceWhileTrue $
          ((flip map) [1..] (\x -> do
           ((more,line0),time0) <- timeAction $ do 
