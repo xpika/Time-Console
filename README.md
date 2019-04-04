@@ -19,3 +19,10 @@ sometimes you need to force the output of the other command to be buffered to fi
 ```
 $timeconsole script -qc <COMMAND>
 ```
+
+to make it do this always add
+```
+alias timecosole='timeconsole script -qc'
+```
+
+to your .bashrc
