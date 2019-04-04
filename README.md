@@ -22,7 +22,7 @@ $timeconsole script -qc <COMMAND>
 
 to make it do this always add
 ```
-alias timecosole='timeconsole script -qc'
+alias timeconsole='timeconsole script -qc'
 ```
 
 to your .bashrc
