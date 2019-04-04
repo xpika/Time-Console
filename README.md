@@ -17,12 +17,12 @@ $ timeconsole ls -l
 sometimes you need to force the output of the other command to be buffered to fix this use:
 
 ```
-$timeconsole script -qc <COMMAND>
+$timeconsole script /dev/null -qc <COMMAND>
 ```
 
 to make it do this always add
 ```
-alias timeconsole='timeconsole script -qc'
+alias timeconsole='timeconsole script /dev/null -qc'
 ```
 
 to your .bashrc
